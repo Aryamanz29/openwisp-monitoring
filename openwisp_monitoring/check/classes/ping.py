@@ -56,6 +56,7 @@ def get_ping_schema():
 
 class Ping(BaseCheck):
     schema = get_ping_schema()
+    print(Chart.objects.all())
 
     def validate_params(self):
         try:

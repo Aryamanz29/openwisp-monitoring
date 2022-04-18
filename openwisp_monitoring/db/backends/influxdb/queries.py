@@ -80,8 +80,24 @@ chart_query = {
             "SELECT MODE(access_tech) AS access_tech FROM {key} WHERE "
             "time >= '{time}' AND content_type = '{content_type}' AND "
             "object_id = '{object_id}' GROUP BY time(1d)"
+        )},
+
+     'bps': {
+        'influxdb': (
+            "SELECT MEAN(sum_sent_bps) AS sent_bps, MEAN(sum_rec_bps) AS "
+            "rec_bps FROM {key} WHERE "
+            "time >= '{time}' AND content_type = '{content_type}' AND "
+            "object_id = '{object_id}' GROUP BY time(1d)"
         )
     },
+    #  'rtt': {
+    #     'influxdb': (
+    #         "SELECT MEAN(rtt_avg) AS RTT_average, MEAN(rtt_max) AS "
+    #         "RTT_max, MEAN(rtt_min) AS RTT_min FROM {key} WHERE "
+    #         "time >= '{time}' AND content_type = '{content_type}' AND "
+    #         "object_id = '{object_id}' GROUP BY time(1d)"
+    #     )
+    # }
 }
 
 default_chart_query = [

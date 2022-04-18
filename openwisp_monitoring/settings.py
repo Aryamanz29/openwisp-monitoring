@@ -16,6 +16,7 @@ AUTO_CHARTS = get_settings_value(
         'memory',
         'cpu',
         'disk',
+        'sent_bps',
     ),
 )
 

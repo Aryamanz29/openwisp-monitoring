@@ -464,6 +464,68 @@ DEFAULT_METRICS = {
             }
         },
     },
+
+    # 'iperf': {
+    #     'label': _('Iperf'),
+    #     'name': 'Iperf',
+    #     'key': 'iperf',
+    #     'field_name': 'iperf_result',
+    #     'related_fields': ['sum_sent_bps', 'sum_rec_bps'],
+    #     'charts': {
+    #           'sent_bps': {
+    #             'type': 'scatter',
+    #             'title': _('Sent BPS'),
+    #             'description': _(
+    #                 'Sent BPS received from Iperf.'
+    #             ),
+    #             'summary_labels': [
+    #                 _('Sent BPS'),
+    #             ],
+    #             'unit': _(' bps'),
+    #             'order': 220,
+    #             'query': chart_query['sent_bps'],
+    #         },
+    #           'rec_bps': {
+    #             'type': 'scatter',
+    #             'title': _('Rec BPS'),
+    #             'description': _(
+    #                 'Rec BPS from Iperf.'
+    #             ),
+    #             'summary_labels': [
+    #                 _('Rec BPS'),
+    #             ],
+    #             'unit': _(' bps'),
+    #             'order': 230,
+    #             'query': chart_query['rec_bps'],
+    #         },
+    #     },
+    # },
+     'iperf': {
+        'label': _('Iperf'),
+        'name': 'Iperf',
+        'key': 'iperf',
+        'field_name': 'iperf_result',
+        'related_fields': ['sum_sent_bps', 'sum_rec_bps'],
+        'charts': {
+        
+            'bps': {
+                'type': 'scatter',
+                'title': _('BPS'),
+                'colors': (DEFAULT_COLORS[2], DEFAULT_COLORS[4]),
+                'description': _(
+                    'Iperf result BPS.'
+                ),
+                'summary_labels': [
+                    _('Sent BPS'),
+                    _('Received BPS'),
+                ],
+                'unit': _(' Gbps'),
+                'order': 230,
+                'query': chart_query['bps'],
+            },
+        },
+       
+    },
 }
 
 DEFAULT_CHARTS = {}

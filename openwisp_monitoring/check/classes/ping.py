@@ -128,6 +128,7 @@ class Ping(BaseCheck):
         metric = self._get_metric()
         copied = result.copy()
         reachable = copied.pop('reachable')
+        print(f"PING REACHABLE DICT == {reachable}, COPIED DICT == {copied}")
         metric.write(reachable, extra_values=copied)
 
     def _get_param(self, param):

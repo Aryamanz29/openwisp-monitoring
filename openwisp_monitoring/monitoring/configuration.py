@@ -464,67 +464,55 @@ DEFAULT_METRICS = {
             }
         },
     },
-
-    # 'iperf': {
-    #     'label': _('Iperf'),
-    #     'name': 'Iperf',
-    #     'key': 'iperf',
-    #     'field_name': 'iperf_result',
-    #     'related_fields': ['sum_sent_bps', 'sum_rec_bps'],
-    #     'charts': {
-    #           'sent_bps': {
-    #             'type': 'scatter',
-    #             'title': _('Sent BPS'),
-    #             'description': _(
-    #                 'Sent BPS received from Iperf.'
-    #             ),
-    #             'summary_labels': [
-    #                 _('Sent BPS'),
-    #             ],
-    #             'unit': _(' bps'),
-    #             'order': 220,
-    #             'query': chart_query['sent_bps'],
-    #         },
-    #           'rec_bps': {
-    #             'type': 'scatter',
-    #             'title': _('Rec BPS'),
-    #             'description': _(
-    #                 'Rec BPS from Iperf.'
-    #             ),
-    #             'summary_labels': [
-    #                 _('Rec BPS'),
-    #             ],
-    #             'unit': _(' bps'),
-    #             'order': 230,
-    #             'query': chart_query['rec_bps'],
-    #         },
-    #     },
-    # },
-     'iperf': {
+    'iperf': {
         'label': _('Iperf'),
         'name': 'Iperf',
         'key': 'iperf',
         'field_name': 'iperf_result',
-        'related_fields': ['sum_sent_bps', 'sum_rec_bps'],
+        'related_fields': [
+            'sum_sent_bps',
+            'sum_rec_bps',
+            'sum_sent_bytes',
+            'sum_rec_bytes',
+            'sum_sent_retransmits',
+        ],
         'charts': {
-        
             'bps': {
                 'type': 'scatter',
-                'title': _('BPS'),
+                'title': _('Bits per second'),
                 'colors': (DEFAULT_COLORS[2], DEFAULT_COLORS[4]),
-                'description': _(
-                    'Iperf result BPS.'
-                ),
+                'description': _('Iperf3 bits per second in TCP mode.'),
                 'summary_labels': [
                     _('Sent BPS'),
                     _('Received BPS'),
                 ],
                 'unit': _(' Gbps'),
-                'order': 230,
+                'order': 280,
                 'query': chart_query['bps'],
             },
+            'transfer': {
+                'type': 'scatter',
+                'title': _('Transfer'),
+                'colors': (DEFAULT_COLORS[9], DEFAULT_COLORS[6]),
+                'description': _('Iperf3 transfer in TCP mode.'),
+                'summary_labels': [
+                    _('Sent Bytes'),
+                    _('Received Bytes'),
+                ],
+                'unit': _(' GBytes'),
+                'order': 290,
+                'query': chart_query['transfer'],
+            },
+            'retransmits': {
+                'type': 'bar',
+                'title': _('Retransmits'),
+                'colors': (DEFAULT_COLORS[4]),
+                'description': _('No. of retransmits during Iperf3 test in TCP mode.'),
+                'unit': '',
+                'order': 300,
+                'query': chart_query['retransmits'],
+            },
         },
-       
     },
 }
 

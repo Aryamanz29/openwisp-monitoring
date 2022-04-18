@@ -101,6 +101,7 @@ def auto_create_config_check(
     check.full_clean()
     check.save()
 
+
 @shared_task
 def auto_create_iperf_check(
     model, app_label, object_id, check_model=None, content_type_model=None
@@ -119,7 +120,11 @@ def auto_create_iperf_check(
     content_type_model = content_type_model or ContentType
     ct = content_type_model.objects.get(app_label=app_label, model=model)
     check = Check(
-        name='Iperf', is_active=False, check_type=iperf_check_path, content_type=ct, object_id=object_id
+        name='Iperf',
+        is_active=False,
+        check_type=iperf_check_path,
+        content_type=ct,
+        object_id=object_id,
     )
     check.full_clean()
     check.save()

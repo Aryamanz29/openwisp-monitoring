@@ -9,7 +9,11 @@ from django.utils.translation import gettext_lazy as _
 from jsonfield import JSONField
 
 from openwisp_monitoring.check import settings as app_settings
-from openwisp_monitoring.check.tasks import auto_create_config_check, auto_create_ping, auto_create_iperf_check
+from openwisp_monitoring.check.tasks import (
+    auto_create_config_check,
+    auto_create_iperf_check,
+    auto_create_ping,
+)
 from openwisp_utils.base import TimeStampedEditableModel
 
 from ...utils import transaction_on_commit
@@ -116,6 +120,7 @@ def auto_config_check_receiver(sender, instance, created, **kwargs):
             object_id=str(instance.pk),
         )
     )
+
 
 def auto_iperf_check_receiver(sender, instance, created, **kwargs):
     """

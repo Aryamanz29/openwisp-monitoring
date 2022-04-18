@@ -18,7 +18,7 @@ IPERF_SERVERS = get_settings_value(
     'IPERF_SERVERS',
     {
         # Running on my local
-        '66fe76b5-c906-4eb6-b466-6ef93492e9af': ['192.168.5.109'],
+        '66fe76b5-c906-4eb6-b466-6ef93492e9af': ['172.19.0.1'],
         #'<org-pk>': ['<ORG_IPERF_SERVER>']
     },
 )

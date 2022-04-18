@@ -65,6 +65,7 @@ class Iperf(BaseCheck):
                 return
         # If device have not active connection warning logged (return)
         except ObjectDoesNotExist:
+            print(f'{self.related_object}: Device has no active connection, Iperf skip')
             return
         pass
 

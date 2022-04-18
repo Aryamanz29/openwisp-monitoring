@@ -480,7 +480,7 @@ DEFAULT_METRICS = {
             'bps': {
                 'type': 'scatter',
                 'title': _('Bits per second'),
-                'colors': (DEFAULT_COLORS[2], DEFAULT_COLORS[4]),
+                'colors': (DEFAULT_COLORS[0], DEFAULT_COLORS[8]),
                 'description': _('Iperf3 bits per second in TCP mode.'),
                 'summary_labels': [
                     _('Sent BPS'),
